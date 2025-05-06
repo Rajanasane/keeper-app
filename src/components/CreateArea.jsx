@@ -16,6 +16,12 @@ function CreateArea(props) {
 
   const submitNote = (event) => {
     event.preventDefault();
+
+    if (note.title.trim() === "" || note.content.trim() === "") {
+      alert("Both title and content are required.");
+      return;
+    }
+
     props.onAdd(note);
     setNote({ title: "", content: "" });
   };
